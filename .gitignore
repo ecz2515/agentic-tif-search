@@ -1,0 +1,24 @@
+# Ignore Python bytecode files
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment directories
+.venv/
+env/
+
+# Ignore data files
+data/tif_expenditures.csv
+
+# Ignore database files
+tif.duckdb
+
+# Ignore any log files
+*.log
+
+# Ignore any temporary files
+*.tmp
+*.temp
+
+# Ignore any system files
+.DS_Store
+Thumbs.db
