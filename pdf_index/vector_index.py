@@ -8,7 +8,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 def build_pdf_index(pdf_dir="pdfs", persist_dir="vectorstore"):
     documents = SimpleDirectoryReader(pdf_dir).load_data()
-    embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=api_key)
+    embed_model = OpenAIEmbedding(model="text-embedding-ada-002", api_key=api_key)  # Using the best available model
     index = VectorStoreIndex.from_documents(documents, embed_model=embed_model)
     index.storage_context.persist(persist_dir=persist_dir)
     print(f"Vector index built and saved to {persist_dir}")
