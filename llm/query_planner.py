@@ -12,7 +12,7 @@ def generate_sql_from_nl(nl_query: str) -> str:
     try:
         client = openai.OpenAI()
         response = client.chat.completions.create(
-            model="gpt-4-turbo",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": SCHEMA_CONTEXT},
                 {"role": "user", "content": nl_query}

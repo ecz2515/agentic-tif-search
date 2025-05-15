@@ -23,7 +23,7 @@ def humanize_query_result(nl_query: str, sql_query: str, query_result) -> str:
         
         client = openai.OpenAI()
         response = client.chat.completions.create(
-            model="gpt-4-turbo",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": """
                 You are a helpful assistant that converts SQL query results into natural language responses.
