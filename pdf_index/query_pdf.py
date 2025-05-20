@@ -15,7 +15,7 @@ def query_pdf_index(question: str, persist_dir="vectorstore", top_k=200):
     index = load_index_from_storage(storage_context)
     embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=api_key)
     query_engine = index.as_query_engine(
-        llm=OpenAI(model="gpt-4o-mini", api_key=api_key),
+        llm=OpenAI(model="o4-mini", reasoning_effort="low", api_key=api_key),
         similarity_top_k=top_k,
         embed_model=embed_model
     )
@@ -36,3 +36,8 @@ def query_pdf_index(question: str, persist_dir="vectorstore", top_k=200):
 
 # Hybrid retrieval - vector and keyword
 # https://docs.llamaindex.ai/en/stable/examples/query_engine/CustomRetrievers/
+
+if __name__ == "__main__":
+    question = "What was Kinzie's total spending in 2023 and what were their main goals for that year?"
+    result = query_pdf_index(question)
+    print(result)
